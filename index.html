@@ -11,12 +11,10 @@
         if (stored) {
             var settings = JSON.parse(stored);
             if (settings.theme === 'dark') {
-                document.body.classList.add('dark-theme');
+                document.documentElement.classList.add('dark-theme');
             }
         }
-    } catch (e) {
-        
-    }
+    } catch (e) {}
 </script>
 
     <link rel="stylesheet" href="css/style.css"> 
@@ -37,20 +35,35 @@
 
     <main>
         <section id="home">
-            <h1>Alpuerto's Portfolio</h1>
-            <p>Welcome to my portfolio! I'm a 22-year-old multimedia arts student currently exploring different ways to creatively express myself!</p>
-            <img src="assets/" alt="Alpuerto's Compiled Works including digital art, graphic design, and photography">
+            <div class="hero-copy">
+                <p class="eyebrow">Multimedia Arts Student</p>
+                <h1>Alpuerto's <span>Portfolio</span></h1>
+                <p class="intro">Welcome to my portfolio! I'm a 22-year-old multimedia arts student currently exploring different ways to creatively express myself.</p>
+            </div>
+            <div class="work-grid" aria-label="Selected portfolio work">
+                <figure class="work-card"><img src="assets/portfolio.jpg" alt="Alpuerto's compiled traditional works"><figcaption>Traditional</figcaption></figure>
+                <figure class="work-card"><img src="assets/portfolio2.jpg" alt="Alpuerto's compiled digital works"><figcaption>Digital</figcaption></figure>
+                <figure class="work-card"><img src="assets/portfolio3.jpg" alt="Alpuerto's compiled photography works"><figcaption>Photography</figcaption></figure>
+                <figure class="work-card"><img src="assets/portfolio4.jpg" alt="Alpuerto's compiled graphic design works"><figcaption>Graphic Design</figcaption></figure>
+                <figure class="work-card"><img src="assets/portfolio5.jpg" alt="Alpuerto's compiled character making works"><figcaption>Characters</figcaption></figure>
+            </div>
         </section>
 
         <section id="about">
-            <h2>Who I Am</h2>
-            <p>I'm Justine and I am a passionate multimedia arts student with a keen interest in digital design and creative expression.</p>
-            <img src="assets/" alt="Self-portrait of Justine Alpuerto in a stylized way">
+            <div class="about-copy">
+                <p class="eyebrow">About Me</p>
+                <h2>Who I Am</h2>
+                <p>I'm Justine and I am a passionate multimedia arts student with a keen interest in digital design and creative expression.</p>
+            </div>
+            <figure class="portrait-card">
+                <img src="assets/portrait.jpg" alt="Self-portrait of Justine Alpuerto in a stylized way">
+            </figure>
         </section>        
 
         <section id="services">
             <h2>My Services</h2>
             <table>
+        <caption>Service Price List</caption>
             <thead>
                 <tr>
                     <th scope="col">Service</th>
@@ -63,19 +76,29 @@
         </section>
         <section id="contact">
             <h2>Contact Me</h2>
-            <form id="contact-form" action="#" method="post">
-                <p id="form-feedback"></p>
+            <form id="contact-form" action="#" method="post" novalidate>
+             <p id="form-feedback"></p>
+
+            <div>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
+                <span class="error-message" id="name-error"></span>
+            </div>
 
+            <div>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
+                <span class="error-message" id="email-error"></span>
+            </div>
 
+            <div>
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
+                <span class="error-message" id="message-error"></span>
+            </div>
 
-                <button type="submit">Send</button>
-            </form>
+            <button type="submit">Send</button>
+        </form>
         </section>
 
     </main>    
